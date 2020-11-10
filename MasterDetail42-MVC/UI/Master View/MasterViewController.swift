@@ -24,7 +24,6 @@ class MasterViewController: UIViewController {
     private let kListCellReuseIdentifier: String = "TrackListCell"
     private let kGridCellReuseIdentifier: String = "TrackGridCell"
     private let kGridLayoutItemsPerRow: CGFloat = 3
-    private let kListCellWidth: CGFloat = UIScreen.main.bounds.width
     private let kListCellHeight: CGFloat = 100
     private let kGridCellWidth: CGFloat = 100
     private let kGridCellHeight: CGFloat = 128
@@ -198,6 +197,7 @@ extension MasterViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
                       sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let kListCellWidth = collectionView.frame.width
         let widthPerItem = isListLayout ? kListCellWidth : kGridCellWidth
         let heightPerItem = isListLayout ? kListCellHeight : kGridCellHeight
         return CGSize(width: widthPerItem, height: CGFloat(heightPerItem))
