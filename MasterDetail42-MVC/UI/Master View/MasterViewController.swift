@@ -84,9 +84,6 @@ class MasterViewController: UIViewController {
         // Update navigation bar elements
         updateNavBar()
         
-        // Update the navigation drawer frame
-        updateDrawerView()
-        
         // Initialize flow layout
         collectionView.collectionViewLayout = {
             let collectionFlowLayout = UICollectionViewFlowLayout()
@@ -115,13 +112,6 @@ class MasterViewController: UIViewController {
         let image = UIImage(named: isListLayout ? "grid" : "list_icon")
         let toggleButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(toggleLayoutButtonTapped(sender:)))
         navigationItem.setRightBarButton(toggleButton, animated: true)
-    }
-    
-    func updateDrawerView() {
-        var drawerViewFrame = collectionView.frame
-        drawerViewFrame.size.width *= 0.7
-        drawerViewFrame.origin.x = -drawerViewFrame.width
-        drawerView.frame = drawerViewFrame
     }
     
     func reloadCollectionView() {
